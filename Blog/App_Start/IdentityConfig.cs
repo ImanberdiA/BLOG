@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Blog.App_Start
+namespace Blog
 {
     public class IdentityConfig
     {
