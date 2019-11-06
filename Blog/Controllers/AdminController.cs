@@ -49,6 +49,27 @@ namespace Blog.Controllers
         }
         #endregion
 
+        #region Удаление пользователя
+        public async Task<ActionResult> Delete(string id)
+        {
+            AppUser user = await UserManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                IdentityResult result = await UserManager.DeleteAsync(user);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View("Error", result.Errors);
+                }
+            }
+
+            return View("Error", new string[] { "Пользователь не найден" });
+        }
+        #endregion
+
         private AppUserManager UserManager
         {
             get
