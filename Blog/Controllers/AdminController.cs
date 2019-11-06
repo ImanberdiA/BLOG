@@ -13,6 +13,7 @@ using Microsoft.Owin.Host.SystemWeb;
 namespace Blog.Controllers
 {
     // [Authorize(Roles = "Administrators")]
+    //[Authorize]
     public class AdminController: Controller
     {
 
