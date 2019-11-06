@@ -85,17 +85,18 @@ namespace Blog.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Edit(string id, string email, string name, string password)
+        public async Task<ActionResult> Edit(string id, string email, string UserName, string password)
         {
             AppUser user = await UserManager.FindByIdAsync(id);
             if (user != null)
             {
                 user.Email = email;
-                IdentityResult validaEmail = await UserManager.UserValidator.ValidateAsync(user);
+                user.UserName = UserName;
+                IdentityResult validaUserData = await UserManager.UserValidator.ValidateAsync(user);
 
-                if (!validaEmail.Succeeded)
+                if (!validaUserData.Succeeded)
                 {
-                    AddErrorsFromResultToModelState(validaEmail);
+                    AddErrorsFromResultToModelState(validaUserData);
                 }
 
                 IdentityResult validPass = null;
@@ -112,7 +113,7 @@ namespace Blog.Controllers
                     }
                 }
 
-                if ((validaEmail.Succeeded && validPass == null) || (validaEmail.Succeeded && password != string.Empty && validPass.Succeeded))
+                if ((validaUserData.Succeeded && validPass == null) || (validaUserData.Succeeded && password != string.Empty && validPass.Succeeded))
                 {
                     IdentityResult result = await UserManager.UpdateAsync(user);
                     if (result.Succeeded)

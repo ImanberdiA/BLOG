@@ -18,6 +18,22 @@ namespace Blog.Infrastructure
         {
             AppIdentityDbContext db = context.Get<AppIdentityDbContext>();
             AppUserManager manager = new AppUserManager(new UserStore<AppUser>(db));
+
+            manager.UserValidator = new MyUserValidator(manager)
+            {
+                AllowOnlyAlphanumericUserNames = true,
+                RequireUniqueEmail = true
+            };
+
+            manager.PasswordValidator = new MyPasswordValidator
+            {
+                RequiredLength = 6,
+                RequireNonLetterOrDigit = true,
+                RequireDigit = true,
+                RequireLowercase = false,
+                RequireUppercase = false
+            };
+
             return manager;
         }
     }
