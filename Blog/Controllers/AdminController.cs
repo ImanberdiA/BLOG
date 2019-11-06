@@ -70,6 +70,66 @@ namespace Blog.Controllers
         }
         #endregion
 
+        #region Редактирование пользователя
+        public async Task<ActionResult> Edit(string id)
+        {
+            AppUser user = await UserManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                return View(user);
+            }
+            else
+            {
+                return View("Error", new string[] { "Пользователь не найден" });
+            }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Edit(string id, string email, string name, string password)
+        {
+            AppUser user = await UserManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                user.Email = email;
+                IdentityResult validaEmail = await UserManager.UserValidator.ValidateAsync(user);
+
+                if (!validaEmail.Succeeded)
+                {
+                    AddErrorsFromResultToModelState(validaEmail);
+                }
+
+                IdentityResult validPass = null;
+                if (password != string.Empty)
+                {
+                    validPass = await UserManager.PasswordValidator.ValidateAsync(password);
+                    if (validPass.Succeeded)
+                    {
+                        user.PasswordHash = UserManager.PasswordHasher.HashPassword(password);
+                    }
+                    else
+                    {
+                        AddErrorsFromResultToModelState(validPass);
+                    }
+                }
+
+                if ((validaEmail.Succeeded && validPass == null) || (validaEmail.Succeeded && password != string.Empty && validPass.Succeeded))
+                {
+                    IdentityResult result = await UserManager.UpdateAsync(user);
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                }
+            }
+            else
+            {
+                return View("Error", new string[] { "Пользователь не найден" });
+            }
+
+            return View(user);
+        }
+        #endregion
+
         private AppUserManager UserManager
         {
             get
