@@ -12,18 +12,22 @@ namespace Blog.Infrastructure
     {
         public AppIdentityDbContext() : base("name=BlogDb") { }
 
+        /*
         static AppIdentityDbContext()
         {
             Database.SetInitializer<AppIdentityDbContext>(new DbInit());
         }
+        */
 
         public static AppIdentityDbContext Create()
         {
             return new AppIdentityDbContext();
         }
+
+        public DbSet<Post> Posts { get; set; }
     }
 
-    public class DbInit : DropCreateDatabaseIfModelChanges<AppIdentityDbContext>
+    public class DbInit : DropCreateDatabaseAlways<AppIdentityDbContext>
     {
         protected override void Seed(AppIdentityDbContext context)
         {

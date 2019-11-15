@@ -15,7 +15,6 @@ namespace Blog.Controllers
 {
     public class AuthenticationController: Controller
     {
-
         #region Войти в систему
         public ActionResult Login(string ReturnUrl)
         {

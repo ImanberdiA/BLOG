@@ -1,0 +1,19 @@
+﻿@using Blog.Models
+@model IEnumerable<AppUser>
+
+@{
+    ViewBag.Title = "GetPosts";
+}
+
+<h2>GetPosts</h2>
+
+@foreach (AppUser user in Model)
+{
+    <h5>@user.UserName</h5>
+    foreach (var post in user.Posts)
+    {
+        <h5>@post.Text</h5><br />
+    }
+    //<h5>@user.Posts.FirstOrDefault().Text</h5>
+    
+}
