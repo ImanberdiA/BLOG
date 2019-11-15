@@ -12,16 +12,13 @@ using System.Web.Mvc;
 
 namespace Blog.Controllers
 {
+    [Authorize(Roles ="Authors")]
     public class BlogController : Controller
     {
         AppIdentityDbContext db = new AppIdentityDbContext();
 
-        // GET: Blog
         public async Task<ActionResult> Index()
         {
-            //IEnumerable<AppUser> users = UserManager.Users.ToList();
-            //return View(users);
-
             AppUser user = await UserManager.FindByNameAsync(HttpContext.User.Identity.Name);
             return View(user);
         }

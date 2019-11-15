@@ -158,13 +158,16 @@
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\AppIdentityDbContext.cs" />
+    <Compile Include="Infrastructure\AppRoleManager.cs" />
     <Compile Include="Infrastructure\AppUserManager.cs" />
     <Compile Include="Infrastructure\MyPasswordValidator.cs" />
     <Compile Include="Infrastructure\MyUserValidator.cs" />
+    <Compile Include="Models\AppRole.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\UserViewModel.cs" />
@@ -217,6 +220,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\RoleAdmin\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

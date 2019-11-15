@@ -8,9 +8,6 @@
 
 @using (Html.BeginForm("Create", "Blog", FormMethod.Post))
 {
-    //@Html.TextBoxFor(x => x.Title) <br />
-    //@Html.TextAreaFor(x => x.Text, 10, 10, null)
-    //<input type="submit" value="Создать">
     <div class="form-group">
         <label>Название</label>
         @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
