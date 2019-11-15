@@ -165,6 +165,7 @@
     <Compile Include="Infrastructure\AppIdentityDbContext.cs" />
     <Compile Include="Infrastructure\AppRoleManager.cs" />
     <Compile Include="Infrastructure\AppUserManager.cs" />
+    <Compile Include="Infrastructure\IdentityHelpers.cs" />
     <Compile Include="Infrastructure\MyPasswordValidator.cs" />
     <Compile Include="Infrastructure\MyUserValidator.cs" />
     <Compile Include="Models\AppRole.cs" />
@@ -217,10 +218,11 @@
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Blog\Create.cshtml" />
     <Content Include="Views\Blog\Edit.cshtml" />
+    <Content Include="Views\RoleAdmin\Index.cshtml" />
+    <Content Include="Views\RoleAdmin\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\RoleAdmin\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -17,7 +17,7 @@ namespace Blog.Controllers
         // GET: RoleAdmin
         public ActionResult Index()
         {
-            return View();
+            return View(RoleManager.Roles);
         }
 
         #region Создание роли
