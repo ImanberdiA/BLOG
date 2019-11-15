@@ -11,8 +11,9 @@
 {
     Тема:<h5>@post.Title</h5> <br>
     Текст: <h5>@post.Text</h5>
-    @using (Html.BeginForm("Edit", "Blog", new { id = post.Id }))
+    using (Html.BeginForm("Edit", "Blog", FormMethod.Get))
     {
-        <button class="btn btn-danger btn-xs" type="submit">Редактировать</button>
+        <input name="id" value="@post.Id" type="hidden">
+        <button class="btn btn-primary btn-xs" type="submit">Редактировать</button>
     }
 }
