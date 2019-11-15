@@ -18,7 +18,8 @@ namespace Blog.Controllers
         // GET: Blog
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<AppUser> users = UserManager.Users.ToList();
+            return View(users);
         }
 
         #region Создание поста
@@ -38,11 +39,20 @@ namespace Blog.Controllers
         }
         #endregion
 
-        public ActionResult GetPosts()
+        #region Удаление поста
+        public async Task<ActionResult> DeletePost(string id)
         {
-            IEnumerable<AppUser> users = UserManager.Users.ToList();
-            return View(users);
+            Post post = db.Posts.FirstOrDefault(p => p.Id.ToString() == id);
+
+            if (post != null)
+            {
+                db.Posts.Remove(post);
+                await db.SaveChangesAsync();
+            }
+
+            return RedirectToAction("Index");
         }
+        #endregion
 
         public AppUserManager UserManager
         {

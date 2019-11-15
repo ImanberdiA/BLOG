@@ -1,7 +1,17 @@
-﻿
+﻿@using Blog.Models
+@model IEnumerable<AppUser>
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "GetPosts";
 }
 
-<h2>BLOG'S INDEX</h2>
+<h2>GetPosts</h2>
 
+@foreach (AppUser user in Model)
+{
+    <h5>@user.UserName</h5>
+    foreach (var post in user.Posts)
+    {
+        <h5>@post.Text</h5><br />
+    }
+}
