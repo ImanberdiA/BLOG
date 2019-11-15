@@ -1,0 +1,12 @@
+﻿@model Blog.Models.Post
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Edit", "Blog", FormMethod.Post))
+{
+    @Html.EditorForModel()
+    <input type="submit" value="Сохранить">
+}

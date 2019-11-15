@@ -1,17 +1,18 @@
 ﻿@using Blog.Models
-@model IEnumerable<AppUser>
+@model AppUser
 
 @{
     ViewBag.Title = "GetPosts";
 }
 
-<h2>GetPosts</h2>
+<h2>Посты автора @Model.UserName</h2>
 
-@foreach (AppUser user in Model)
+@foreach (var post in Model.Posts)
 {
-    <h5>@user.UserName</h5>
-    foreach (var post in user.Posts)
+    Тема:<h5>@post.Title</h5> <br>
+    Текст: <h5>@post.Text</h5>
+    @using (Html.BeginForm("Edit", "Blog", new { id = post.Id }))
     {
-        <h5>@post.Text</h5><br />
+        <button class="btn btn-danger btn-xs" type="submit">Редактировать</button>
     }
 }
