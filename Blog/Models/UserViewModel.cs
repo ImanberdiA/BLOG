@@ -41,7 +41,8 @@ namespace Blog.Models
 
     public class RoleModificationModel
     {
-        public string RoleName;
+        [Required]
+        public string RoleName { get; set; }
         
         public string[] IdsToAdd { get; set; }
 

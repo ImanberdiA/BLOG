@@ -12,6 +12,7 @@ using System.Web.Mvc;
 
 namespace Blog.Controllers
 {
+    [Authorize(Roles = "Administrators")]
     public class RoleAdminController : Controller
     {
         // GET: RoleAdmin
@@ -87,23 +88,31 @@ namespace Blog.Controllers
 
                     IEnumerable<AppUser> nonMembers = UserManager.Users.Except(members);
 
-                    return View(new RoleEditModel {
+                    return View(new RoleEditModel
+                    {
                         Role = role,
                         Members = members,
                         NonMembers = nonMembers
                     });
                 }
+                else
+                {
+                    return View("Error", new string[] { "Роль не найдена" });
+                }
             }
-
-            return View("Error", new string[] { "Роль не найдена" });
+            else
+            {
+                return View("Error", new string[] { "Роль с таким идентификатором не существует" });
+            }
         }
 
+        [HttpPost]
         public async Task<ActionResult> Edit(RoleModificationModel model)
         {
             IdentityResult result;
             if (model != null && ModelState.IsValid)
             {
-                foreach (string userId in model.IdsToAdd)
+                foreach (string userId in model.IdsToAdd ?? new string[] { })
                 {
                     result = await UserManager.AddToRoleAsync(userId, model.RoleName);
                     if (!result.Succeeded)
@@ -112,7 +121,7 @@ namespace Blog.Controllers
                     }
                 }
 
-                foreach (string userId in model.IdsToRemove)
+                foreach (string userId in model.IdsToRemove ?? new string[] { })
                 {
                     result = await UserManager.RemoveFromRoleAsync(userId, model.RoleName);
                     if (!result.Succeeded)
@@ -121,7 +130,7 @@ namespace Blog.Controllers
                     }
                 }
 
-                return Redirect("Index");
+                return RedirectToAction("Index");
             }
 
             return View("Error", new string[] { "Произошла ошибка" });
