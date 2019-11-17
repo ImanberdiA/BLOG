@@ -6,6 +6,23 @@ using System.Web;
 
 namespace Blog.Models
 {
+    #region Модель для регистрации пользователя
+    public class UserRegistrationModel
+    {
+        [Required]
+        public string Name { get; set; }
+
+        [Required]
+        public string Email { get; set; }
+
+        [Required]
+        public string Password { get; set; }
+        
+        [Required]
+        public string RoleName { get; set; }
+    }
+    #endregion
+
     // Создание пользователя
     public class CreateUserModel
     {

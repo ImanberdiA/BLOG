@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Blog.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,11 +9,14 @@ namespace Blog.Controllers
 {
     public class HomeController : Controller
     {
+        AppIdentityDbContext db = new AppIdentityDbContext();
+
         // ЗДЕСЬ ВЫВОДИТЬ ВСЕ СТАТЬИ С НАЗВАНИЕМ И НЕПОЛНЫМ ТЕКСТОМ(КНОПОЧКУ ЧИТАТЬ ДАЛЬШЕ)
         public ActionResult Index()
         {
-            return View();
+            return View(db.Posts.ToList());
         }
+
 
 
     }

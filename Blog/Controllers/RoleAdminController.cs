@@ -15,7 +15,6 @@ namespace Blog.Controllers
     [Authorize(Roles = "Administrators")]
     public class RoleAdminController : Controller
     {
-        // GET: RoleAdmin
         public ActionResult Index()
         {
             return View(RoleManager.Roles);

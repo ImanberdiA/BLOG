@@ -24,7 +24,8 @@ namespace Blog.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginModel model, string ReturnUrl)
+        [ActionName("Login")]
+        public async Task<ActionResult> LoginPost(LoginModel model, string ReturnUrl)
         {
             AppUser user = await UserManager.FindAsync(model.UserName, model.Password);
             if (user == null)
@@ -56,6 +57,59 @@ namespace Blog.Controllers
         }
         #endregion
 
+        #region Регистрация пользователей
+        // НУЖНА ШОБ В ДРОПДАУН ОТПРАВЛЯЛИСЬ ТОЛЬКО НУЖНЫЕ РОЛИ
+        public ActionResult Register()
+        {
+            if(HttpContext.User.Identity.IsAuthenticated)
+            {
+                return View("Error", new string[] { "В доступе отказано" });
+            }
+
+            SelectList roles = new SelectList(RoleManager.Roles, "Name", "Name");
+            ViewData["Roles"] = roles;
+            return View();
+        }
+        
+        [HttpPost]
+        public async Task<ActionResult> Register(UserRegistrationModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                AppUser user = new AppUser { UserName = model.Name, Email = model.Email };
+                IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+
+                if (result.Succeeded)
+                {
+                    result = await UserManager.AddToRoleAsync(user.Id, model.RoleName);
+                    if (result.Succeeded)
+                    {
+                        await LoginPost(new LoginModel { UserName = model.Name, Password = model.Password }, "/Home/Index");
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        AddErrorsFromResultToModelState(result);
+                    }
+                }
+                else
+                {
+                    AddErrorsFromResultToModelState(result);
+                }
+            }
+
+            return View(model);
+        }
+        #endregion
+        
+        private AppRoleManager RoleManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().GetUserManager<AppRoleManager>();
+            }
+        }
+
         private IAuthenticationManager AuthenticationManager
         {
             get
@@ -69,6 +123,14 @@ namespace Blog.Controllers
             get
             {
                 return HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
+            }
+        }
+
+        private void AddErrorsFromResultToModelState(IdentityResult result)
+        {
+            foreach (string error in result.Errors)
+            {
+                ModelState.AddModelError("", error);
             }
         }
     }

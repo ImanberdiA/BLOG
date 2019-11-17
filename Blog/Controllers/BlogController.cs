@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace Blog.Controllers
 {
-    [Authorize(Roles ="Authors")]
+    [Authorize(Roles ="Authors, Administrators, Moderators")]
     public class BlogController : Controller
     {
         AppIdentityDbContext db = new AppIdentityDbContext();

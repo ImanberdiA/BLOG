@@ -1,0 +1,30 @@
+﻿@model Blog.Models.UserRegistrationModel
+
+@{
+    ViewBag.Title = "Регистрация пользователя";
+}
+
+@Html.ValidationSummary(false)
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label>Имя</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Пароль</label>
+        @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Роли</label>
+        @Html.DropDownList("RoleName", ViewData["Roles"] as SelectList)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+
+    @Html.ActionLink("Отмена", "Index", null, new { @class = "btn btn-default" })
+}
