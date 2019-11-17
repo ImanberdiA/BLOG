@@ -6,12 +6,14 @@ using System.Web.Mvc;
 
 namespace Blog.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
+        // ЗДЕСЬ ВЫВОДИТЬ ВСЕ СТАТЬИ С НАЗВАНИЕМ И НЕПОЛНЫМ ТЕКСТОМ(КНОПОЧКУ ЧИТАТЬ ДАЛЬШЕ)
         public ActionResult Index()
         {
             return View();
         }
+
+
     }
 }

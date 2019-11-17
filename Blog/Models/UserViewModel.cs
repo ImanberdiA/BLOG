@@ -28,4 +28,25 @@ namespace Blog.Models
         [Required]
         public string Password { get; set; }
     }
+
+    #region Модели для редактирование роли
+    public class RoleEditModel
+    {
+        public AppRole Role { get; set; }
+
+        public IEnumerable<AppUser> Members { get; set; }
+
+        public IEnumerable<AppUser> NonMembers { get; set; }
+    }
+
+    public class RoleModificationModel
+    {
+        public string RoleName;
+        
+        public string[] IdsToAdd { get; set; }
+
+        public string[] IdsToRemove { get; set; }
+    }
+
+    #endregion
 }

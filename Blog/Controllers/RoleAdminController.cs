@@ -73,7 +73,59 @@ namespace Blog.Controllers
         #endregion
 
         #region Редактирование роли
-        
+        public async Task<ActionResult> Edit([Required]string id)
+        {
+            if (ModelState.IsValid)
+            {
+                AppRole role = await RoleManager.FindByIdAsync(id);
+
+                if (role != null)
+                {
+                    string[] memberIds = role.Users.Select(x => x.UserId).ToArray();
+
+                    IEnumerable<AppUser> members = UserManager.Users.Where(x => memberIds.Any(y => y == x.Id));
+
+                    IEnumerable<AppUser> nonMembers = UserManager.Users.Except(members);
+
+                    return View(new RoleEditModel {
+                        Role = role,
+                        Members = members,
+                        NonMembers = nonMembers
+                    });
+                }
+            }
+
+            return View("Error", new string[] { "Роль не найдена" });
+        }
+
+        public async Task<ActionResult> Edit(RoleModificationModel model)
+        {
+            IdentityResult result;
+            if (model != null && ModelState.IsValid)
+            {
+                foreach (string userId in model.IdsToAdd)
+                {
+                    result = await UserManager.AddToRoleAsync(userId, model.RoleName);
+                    if (!result.Succeeded)
+                    {
+                        return View("Error", result.Errors);
+                    }
+                }
+
+                foreach (string userId in model.IdsToRemove)
+                {
+                    result = await UserManager.RemoveFromRoleAsync(userId, model.RoleName);
+                    if (!result.Succeeded)
+                    {
+                        return View("Error", result.Errors);
+                    }
+                }
+
+                return Redirect("Index");
+            }
+
+            return View("Error", new string[] { "Произошла ошибка" });
+        }
         #endregion
 
         private AppRoleManager RoleManager
