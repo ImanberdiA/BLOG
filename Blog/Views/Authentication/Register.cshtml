@@ -21,7 +21,7 @@
     </div>
     <div class="form-group">
         <label>Роли</label>
-        @Html.DropDownList("RoleName", ViewData["Roles"] as SelectList)
+        @Html.DropDownList("RoleName", ViewData["Roles"] as SelectList, new { @class = "btn btn-info dropdown-toggle" })
     </div>
 
     <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
