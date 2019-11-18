@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Blog.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         AppIdentityDbContext db = new AppIdentityDbContext();

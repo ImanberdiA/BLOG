@@ -58,7 +58,6 @@ namespace Blog.Controllers
         #endregion
 
         #region Регистрация пользователей
-        // НУЖНА ШОБ В ДРОПДАУН ОТПРАВЛЯЛИСЬ ТОЛЬКО НУЖНЫЕ РОЛИ
         public ActionResult Register()
         {
             if(HttpContext.User.Identity.IsAuthenticated)
@@ -66,7 +65,8 @@ namespace Blog.Controllers
                 return View("Error", new string[] { "В доступе отказано" });
             }
 
-            SelectList roles = new SelectList(RoleManager.Roles, "Name", "Name");
+            IEnumerable<AppRole> Roles = RoleManager.Roles.Where(r => (r.Name != "Administrators") && (r.Name != "Moderators"));
+            SelectList roles = new SelectList(Roles, "Name", "Name");
             ViewData["Roles"] = roles;
             return View();
         }
