@@ -15,6 +15,34 @@ namespace Blog.Controllers
 {
     public class AuthenticationController: Controller
     {
+        #region Личный кабинет пользователя
+        public async Task<ActionResult> PersonalAccount()
+        {
+            string name = HttpContext.User.Identity.Name;
+
+            AppUser currentUser = await UserManager.FindByNameAsync(name);
+
+            if (currentUser != null)
+            {
+                string roleNames = null;
+                foreach (var role in currentUser.Roles)
+                {
+                    roleNames += string.Join(", ", RoleManager.Roles.Where(r => r.Id == role.RoleId).Select(r => r.Name));
+                    roleNames += "; ";
+                    //roleNames = RoleManager.Roles.Where(r => r.Id == role.RoleId).Select(r => r.Name);
+                }
+
+                ViewBag.RoleNames = roleNames;
+                ViewData["IsAuth"] = HttpContext.User.Identity.IsAuthenticated;
+                return View(currentUser);
+            }
+            else
+            {
+                return View("Error", new string[] { "Пользователь не существует" });
+            }
+        }
+        #endregion
+
         #region Войти в систему
         public ActionResult Login(string ReturnUrl)
         {

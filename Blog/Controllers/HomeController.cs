@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace Blog.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class HomeController : Controller
     {
         AppIdentityDbContext db = new AppIdentityDbContext();
@@ -15,8 +15,10 @@ namespace Blog.Controllers
         // ЗДЕСЬ ВЫВОДИТЬ ВСЕ СТАТЬИ С НАЗВАНИЕМ И НЕПОЛНЫМ ТЕКСТОМ(КНОПОЧКУ ЧИТАТЬ ДАЛЬШЕ)
         public ActionResult Index()
         {
+            ViewData["IsAuth"] = HttpContext.User.Identity.IsAuthenticated;
             return View(db.Posts.ToList());
         }
+
 
 
 

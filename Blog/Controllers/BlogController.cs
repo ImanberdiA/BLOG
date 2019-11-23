@@ -17,11 +17,14 @@ namespace Blog.Controllers
     {
         AppIdentityDbContext db = new AppIdentityDbContext();
 
-        public async Task<ActionResult> Index()
+        #region ПОЛУЧИТЬ ВСЕ ПОСТЫ ПОЛЬЗОВАТЕЛЯ
+        public async Task<ActionResult> GetUserPosts()
         {
+            ViewData["IsAuth"] = HttpContext.User.Identity.IsAuthenticated;
             AppUser user = await UserManager.FindByNameAsync(HttpContext.User.Identity.Name);
             return View(user);
         }
+        #endregion
 
         #region Создание поста
         public ActionResult Create()

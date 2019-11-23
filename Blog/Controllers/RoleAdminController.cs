@@ -17,6 +17,10 @@ namespace Blog.Controllers
     {
         public ActionResult Index()
         {
+            var roles = from r in RoleManager.Roles
+                        orderby r
+                        select r;
+
             return View(RoleManager.Roles);
         }
 

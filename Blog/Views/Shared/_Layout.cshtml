@@ -7,6 +7,13 @@
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
 </head>
 <body class="container">
+    @if (ViewData["IsAuth"] != null && (bool)ViewData["IsAuth"])
+    {
+        @Html.ActionLink("Личный кабинет", "PersonalAccount", "Authentication", null, new { @class = "btn btn-primary btn-xs", style = "float: left; margin-right: 50px" })
+        @Html.ActionLink("Мои посты", "GetUserPosts", "Blog", null, new { @class = "btn btn-primary btn-xs", style = "float: left; margin-right: 50px" })
+        @Html.ActionLink("Выйти", "Logout", "Authentication", null, new { @class = "btn btn-primary btn-xs", style = "float: left; margin-right: 50px" })
+    }
+    <br />
     <div class="container">
         @RenderBody()
     </div>
