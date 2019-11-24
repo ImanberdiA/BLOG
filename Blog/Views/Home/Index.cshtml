@@ -5,6 +5,8 @@
     ViewBag.Title = "Главная страница";
 }
 
+@Html.ActionLink("Войти", "Login", "Authentication", null, new { @class = "btn btn-primary btn-xs", style = "float: left; margin-right: 50px" })
+
 <h1>Главная страница</h1>
 
 @if (Model.Count() == 0)

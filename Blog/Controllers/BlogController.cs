@@ -17,7 +17,7 @@ namespace Blog.Controllers
     {
         AppIdentityDbContext db = new AppIdentityDbContext();
 
-        #region ПОЛУЧИТЬ ВСЕ ПОСТЫ ПОЛЬЗОВАТЕЛЯ
+        #region Получить все посты пользователя
         public async Task<ActionResult> GetUserPosts()
         {
             ViewData["IsAuth"] = HttpContext.User.Identity.IsAuthenticated;
