@@ -1,29 +1,3 @@
-/*
-    Template Name: Coffee
-    Template URI: https://devitems.com/html/coffee-preview/
-    Description: This is html5 template
-    Author: HasTech
-    Author URI: https://devitems.com/
-    Version: 1.0
-*/
-
-/*================================================
-[  Table of contents  ]
-================================================
-01. Avoid `console` errors in browsers that lack a console.
-02. jQuery Waypoints
-03. CounterUp Js
-04. Scrollup Jquery
-05. WOW / scrolling animation
-06. Bootstrap datepicker
- 
-======================================
-[ End table content ]
-======================================*/
-
-/*-------------------------------------------------------------
-  01. Avoid `console` errors in browsers that lack a console.
----------------------------------------------------------------*/
 (function() {
     var method;
     var noop = function () {};
