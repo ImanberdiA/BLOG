@@ -175,10 +175,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\css\animate.css" />
     <Content Include="Assets\css\bootstrap.min.css" />
-    <Content Include="Assets\css\font-awesome.min.css" />
-    <Content Include="Assets\css\magnific-popup.css" />
     <Content Include="Assets\css\material-design-iconic-font.min.css" />
     <Content Include="Assets\css\meanmenu.css" />
     <Content Include="Assets\css\owl.carousel.css" />
