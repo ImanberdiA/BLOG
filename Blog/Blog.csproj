@@ -220,15 +220,11 @@
     <Content Include="Assets\img\trainer\trainer3.jpg" />
     <Content Include="Assets\img\trainer\trainer4.png" />
     <Content Include="Assets\img\trainer\trainer5.png" />
-    <Content Include="Assets\js\ajax-mail.js" />
     <Content Include="Assets\js\bootstrap.min.js" />
     <Content Include="Assets\js\imagesloaded.pkgd.min.js" />
     <Content Include="Assets\js\isotope.pkgd.min.js" />
     <Content Include="Assets\js\jquery.ajaxchimp.min.js" />
-    <Content Include="Assets\js\jquery.magnific-popup.js" />
-    <Content Include="Assets\js\jquery.meanmenu.js" />
     <Content Include="Assets\js\main.js" />
-    <Content Include="Assets\js\owl.carousel.min.js" />
     <Content Include="Assets\js\plugins.js" />
     <Content Include="Assets\js\slick.min.js" />
     <Content Include="Assets\js\vendor\jquery-1.12.4.min.js" />
