@@ -184,7 +184,6 @@
     <Content Include="Assets\css\shortcode\footer.css" />
     <Content Include="Assets\css\shortcode\header.css" />
     <Content Include="Assets\css\shortcode\shortcodes.css" />
-    <Content Include="Assets\css\shortcode\slider.css" />
     <Content Include="Assets\css\style.css" />
     <Content Include="Assets\fonts\fontawesome-webfont.svg" />
     <Content Include="Assets\fonts\Material-Design-Iconic-Font.svg" />
