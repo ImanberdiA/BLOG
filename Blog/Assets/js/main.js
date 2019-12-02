@@ -1,27 +1,3 @@
-/*
-    Template Name: Handstand - Gym & Fitness HTML Template
-    Template URI: https://devitems.com/html/coffee-preview/
-    Description: This is html5 template
-    Author: HasTech
-    Author URI: https://devitems.com/
-    Version: 1.0
-*/
-/*================================================
-[  Table of contents  ]
-================================================
-	01. Sticky Menu
-	02. Owl Carousel
-	03. jQuery MeanMenu
-	04. Mail Chimp
-	05. ScrollUp
-	06. Wow js
-	07. Portfolio Isotope
-    08. Magnific Popup
- 
-======================================
-[ End table content ]
-======================================*/
-
 (function ($) {
 	"use strict";
     

@@ -228,7 +228,6 @@
     <Content Include="Assets\js\imagesloaded.pkgd.min.js" />
     <Content Include="Assets\js\isotope.pkgd.min.js" />
     <Content Include="Assets\js\jquery.ajaxchimp.min.js" />
-    <Content Include="Assets\js\jquery.magnific-popup.js" />
     <Content Include="Assets\js\jquery.meanmenu.js" />
     <Content Include="Assets\js\main.js" />
     <Content Include="Assets\js\owl.carousel.min.js" />
