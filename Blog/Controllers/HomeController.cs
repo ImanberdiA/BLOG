@@ -19,6 +19,11 @@ namespace Blog.Controllers
             return View(db.Posts.ToList());
         }
 
+        public ActionResult Articles()
+        {
+            ViewData["IsAuth"] = HttpContext.User.Identity.IsAuthenticated;
+            return View(db.Posts.ToList());
+        }
 
 
 

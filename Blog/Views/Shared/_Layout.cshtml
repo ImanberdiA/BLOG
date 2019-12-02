@@ -1,30 +1,75 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!doctype html>
+<html class="no-js" lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>IT Блог</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/Assets/img/favicon.ico">
+
+    <!-- All css here -->
+    <link rel="stylesheet" href="~/Assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Assets/css/shortcode/shortcodes.css">
+    <link rel="stylesheet" href="~/Assets/css/slick.css">
+    <link rel="stylesheet" href="~/Assets/css/style.css">
+    <link rel="stylesheet" href="~/Assets/css/responsive.css">
+    <script src="~/Assets/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body class="container">
-    @if (ViewData["IsAuth"] != null && (bool)ViewData["IsAuth"])
-    {
-        @Html.ActionLink("Личный кабинет", "PersonalAccount", "Authentication", null, new { @class = "btn btn-primary btn-xs", style = "float: left; margin-right: 50px" })
-        @Html.ActionLink("Мои посты", "GetUserPosts", "Blog", null, new { @class = "btn btn-primary btn-xs", style = "float: left; margin-right: 50px" })
-        @Html.ActionLink("Выйти", "Logout", "Authentication", null, new { @class = "btn btn-primary btn-xs", style = "float: left; margin-right: 50px" })
-    }
-    <br />
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Header Area Start -->
+    <header class="top">
+        <div class="header-area ptb-18 header-sticky">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 col-xs-12">
+                        <div class="logo">
+                            <a href="index.html"><img src="~/Assets/img/logo/logo.png" alt="COFFEE" /></a>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-xs-12">
+                        <div class="content-wrapper">
+                            <!-- Main Menu Start -->
+                            <div class="main-menu text-center">
+                                <nav>
+                                    <ul>
+                                        <li>@Html.ActionLink("Главная", "Index", "Home", null, null)</li>
+                                        <li><a href="about-us.html">О нас</a></li>
+                                        <li><a href="class.html">Контакты</a></li>
+                                        @if (ViewData["IsAuth"] != null && (bool)ViewData["IsAuth"])
+                                        {
+                                            <li>@Html.ActionLink("Личный кабинет", "PersonalAccount", "Authentication", null, null)</li>
+                                            <li>@Html.ActionLink("Мои посты", "GetUserPosts", "Blog", null, null)</li>
+                                            <li>@Html.ActionLink("Выйти", "Logout", "Authentication", null, null)</li>
+                                        }
+                                        else
+                                        {
+                                            @Html.ActionLink("Войти", "Login", "Authentication", null, null)
+                                        }
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="mobile-menu hidden-lg hidden-md"></div>
+                            <!-- Main Menu End -->
+                        </div>
+                    </div>
+                    <div class="col-md-2 hidden-sm hidden-xs">
+                        <div class="header-contact text-right">
+                            <a class="banner-btn" data-text="contact" href="contact.html"><span>contact</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
     <div class="container">
         @RenderBody()
     </div>
-    <style>
-        .container {
-            padding-top: 10px;
-        }
-
-        .validation-summary-errors {
-            color: #f00;
-        }
-    </style>
 </body>
 </html>

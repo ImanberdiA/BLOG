@@ -39,7 +39,7 @@ namespace Blog.Controllers
             cur_user.Posts.Add(post);
             await UserManager.UpdateAsync(cur_user);
             
-            return RedirectToAction("Index");
+            return RedirectToAction("GetUserPosts");
         }
         #endregion
 
@@ -54,7 +54,7 @@ namespace Blog.Controllers
                 await db.SaveChangesAsync();
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("GetUserPosts");
         }
         #endregion
 
@@ -86,7 +86,7 @@ namespace Blog.Controllers
         {
             db.Entry(post).State = EntityState.Modified;
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("GetUserPosts");
         }
         #endregion
 

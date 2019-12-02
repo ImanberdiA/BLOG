@@ -5,34 +5,37 @@
     ViewBag.Title = "Посты";
 }
 
+<h2>Посты автора @Model.UserName</h2>
+<br />
+
 @using (Html.BeginForm("Create", "Blog", FormMethod.Get))
 {
-    <button class="btn btn-success btn-xs" type="submit">Создать</button>
+    <button class="btn" type="submit">Создать</button>
 }
 
-<h2>Посты автора @Model.UserName</h2>
 @if (Model.Posts.Count() == 0)
 {
     <h4>Нет постов</h4>
 }
+@foreach (var post in Model.Posts)
+{
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-12">
+            <div class="single-blog pb-30">
+                <div class="blog-content">
+                    <h3><a href="#">@post.Title</a></h3>
+                    <h6>25 March 2017</h6>
+                    <p>@post.Text.Substring(0, 4)</p>
 
-<div class="table-responsive">
-    <table>
-        @foreach (var post in Model.Posts)
-        {
-            <tr><td><b>@post.Title</b></td></tr>
-            <tr><td>@post.Text</td></tr>
-            <tr>
-                <td>
                     @using (Html.BeginForm("Delete", "Blog", FormMethod.Get))
                     {
                         <input name="id" value="@post.Id" type="hidden">
-                        <button class="btn btn-primary btn-xs" type="submit">Удалить</button>
+                        <button class="btn" type="submit">Удалить</button>
                         @Html.ActionLink("Редактировать", "Edit", new { id = post.Id },
-                                            new { @class = "btn btn-danger btn-xs", style = "float: left; margin-right: 10px" })
+                                            new { @class = "btn" })
                     }
-                </td>
-            </tr>
-        }
-    </table>
-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
