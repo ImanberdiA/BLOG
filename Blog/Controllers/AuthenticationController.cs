@@ -46,6 +46,11 @@ namespace Blog.Controllers
         #region Войти в систему
         public ActionResult Login(string ReturnUrl)
         {
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                return View("Error", new string[] { "В доступе отказано" });
+            }
+
             ViewBag.ReturnUrl = ReturnUrl;
             return View();
         }
@@ -75,7 +80,7 @@ namespace Blog.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Index", "Home", null);
+                   return RedirectToAction("Index", "Home", null);
                 }
             }
 

@@ -3,6 +3,10 @@
 @model IEnumerable<AppRole>
 
 @{
+    Layout = "~/Views/Shared/_LayoutAdminPanel.cshtml";
+}
+
+@{
     ViewBag.Title = "Роли";
 }
 
@@ -38,8 +42,8 @@
                             <p>
                                 @string.Join(", ", role.Users.Select(x =>
                              Html.GetUserName(x.UserId)))
-                        </p>
-                    }
+                            </p>
+                        }
                     </td>
                     <td>
                         @using (Html.BeginForm("Delete", "RoleAdmin", new { id = role.Id }))

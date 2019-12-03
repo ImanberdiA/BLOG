@@ -1,0 +1,22 @@
+﻿@model Blog.Models.Post
+
+@{
+    ViewBag.Title = "GetArticle";
+}
+
+
+<h2>@Model.Id</h2>
+
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-12">
+        <div class="single-blog pb-30">
+            <div class="blog-content">
+                <h3><a href="#">@Model.Title</a></h3>
+                <p>@Model.Text</p>
+
+                @Html.ActionLink("На главную", "Index", "Home")
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -250,6 +250,7 @@
     <Content Include="Assets\fonts\Material-Design-Iconic-Font.ttf" />
     <Content Include="Assets\fonts\Material-Design-Iconic-Font.woff" />
     <Content Include="Assets\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Views\Home\GetArticle.cshtml" />
     <None Include="Views\Shared\_LayoutAdminPanel.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
