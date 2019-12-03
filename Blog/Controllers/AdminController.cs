@@ -12,11 +12,10 @@ using Microsoft.Owin.Host.SystemWeb;
 
 namespace Blog.Controllers
 {
-    // [Authorize(Roles = "Administrators")]
+    [Authorize(Roles = "Administrators, Moderators")]
     //[Authorize]
     public class AdminController: Controller
     {
-
         public ActionResult Index()
         {
             return View(UserManager.Users);

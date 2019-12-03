@@ -90,8 +90,8 @@ C:\Users\ALIK\Desktop\PORTFOLIO\BLOG\BLOG\Blog\bin\System.Web.WebPages.Razor.xml
 C:\Users\ALIK\Desktop\PORTFOLIO\BLOG\BLOG\Blog\bin\Newtonsoft.Json.xml
 C:\Users\ALIK\Desktop\PORTFOLIO\BLOG\BLOG\Blog\bin\Antlr3.Runtime.pdb
 C:\Users\ALIK\Desktop\PORTFOLIO\BLOG\BLOG\Blog\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\ALIK\Desktop\PORTFOLIO\BLOG\BLOG\Blog\obj\Debug\Blog.csprojAssemblyReference.cache
 C:\Users\ALIK\Desktop\PORTFOLIO\BLOG\BLOG\Blog\obj\Debug\Blog.csproj.CoreCompileInputs.cache
 C:\Users\ALIK\Desktop\PORTFOLIO\BLOG\BLOG\Blog\obj\Debug\Blog.csproj.CopyComplete
 C:\Users\ALIK\Desktop\PORTFOLIO\BLOG\BLOG\Blog\obj\Debug\Blog.dll
 C:\Users\ALIK\Desktop\PORTFOLIO\BLOG\BLOG\Blog\obj\Debug\Blog.pdb
+C:\Users\ALIK\Desktop\PORTFOLIO\BLOG\BLOG\Blog\obj\Debug\Blog.csprojAssemblyReference.cache

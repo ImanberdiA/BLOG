@@ -1,0 +1,23 @@
+﻿@model Blog.Models.Post
+@{
+    ViewBag.Title = "Редактирование поста";
+}
+
+<h2>Редактировать пост</h2>
+
+@using (Html.BeginForm("Edit", "Blog", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.Id, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Название</label>
+        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Текст</label>
+        @Html.TextAreaFor(x => x.Text, 10, 10, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+
+}

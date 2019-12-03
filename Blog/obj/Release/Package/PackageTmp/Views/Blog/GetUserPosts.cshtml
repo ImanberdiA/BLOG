@@ -1,0 +1,41 @@
+﻿@using Blog.Models
+@model AppUser
+
+@{
+    ViewBag.Title = "Посты";
+}
+
+<h2>Посты автора @Model.UserName</h2>
+<br />
+
+@using (Html.BeginForm("Create", "Blog", FormMethod.Get))
+{
+    <button class="btn" type="submit">Создать</button>
+}
+
+@if (Model.Posts.Count() == 0)
+{
+    <h4>Нет постов</h4>
+}
+@foreach (var post in Model.Posts)
+{
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-12">
+            <div class="single-blog pb-30">
+                <div class="blog-content">
+                    <h3><a href="#">@post.Title</a></h3>
+                    <h6>25 March 2017</h6>
+                    <p>@post.Text.Substring(0, 4)</p>
+
+                    @using (Html.BeginForm("Delete", "Blog", FormMethod.Get))
+                    {
+                        <input name="id" value="@post.Id" type="hidden">
+                        <button class="btn" type="submit">Удалить</button>
+                        @Html.ActionLink("Редактировать", "Edit", new { id = post.Id },
+                                            new { @class = "btn" })
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

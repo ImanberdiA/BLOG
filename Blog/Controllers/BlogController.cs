@@ -29,6 +29,7 @@ namespace Blog.Controllers
         #region Создание поста
         public ActionResult Create()
         {
+            ViewData["IsAuth"] = HttpContext.User.Identity.IsAuthenticated;
             return View();
         }
 
@@ -73,6 +74,7 @@ namespace Blog.Controllers
 
             if (post != null)
             {
+                ViewData["IsAuth"] = HttpContext.User.Identity.IsAuthenticated;
                 return View(post);
             }
             else

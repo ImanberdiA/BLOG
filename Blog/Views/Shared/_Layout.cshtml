@@ -36,12 +36,10 @@
                     <div class="col-md-8 col-xs-12">
                         <div class="content-wrapper">
                             <!-- Main Menu Start -->
-                            <div class="main-menu text-center">
+                            <div class="main-menu text-right">
                                 <nav>
                                     <ul>
                                         <li>@Html.ActionLink("Главная", "Index", "Home", null, null)</li>
-                                        <li><a href="about-us.html">О нас</a></li>
-                                        <li><a href="class.html">Контакты</a></li>
                                         @if (ViewData["IsAuth"] != null && (bool)ViewData["IsAuth"])
                                         {
                                             <li>@Html.ActionLink("Личный кабинет", "PersonalAccount", "Authentication", null, null)</li>
@@ -50,7 +48,8 @@
                                         }
                                         else
                                         {
-                                            @Html.ActionLink("Войти", "Login", "Authentication", null, null)
+                                            <li>@Html.ActionLink("Регистрация", "Register", "Authentication", null, null)</li>
+                                            <li>@Html.ActionLink("Войти", "Login", "Authentication", null, null)</li>
                                         }
                                     </ul>
                                 </nav>
@@ -61,15 +60,29 @@
                     </div>
                     <div class="col-md-2 hidden-sm hidden-xs">
                         <div class="header-contact text-right">
-                            <a class="banner-btn" data-text="contact" href="contact.html"><span>contact</span></a>
+                            <a class="banner-btn" href="/Admin/Index"><h4>Панель управления</h4></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+
     <div class="container">
         @RenderBody()
     </div>
+
+    <script src="~/Assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="~/Assets/js/bootstrap.min.js"></script>
+    <script src="~/Assets/js/owl.carousel.min.js"></script>
+    <script src="~/Assets/js/jquery.meanmenu.js"></script>
+    <script src="~/Assets/js/ajax-mail.js"></script>
+    <script src="~/Assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="~/Assets/js/slick.min.js"></script>
+    <script src="~/Assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="~/Assets/js/isotope.pkgd.min.js"></script>
+    <script src="~/Assets/js/jquery.magnific-popup.js"></script>
+    <script src="~/Assets/js/plugins.js"></script>
+    <script src="~/Assets/js/main.js"></script>
 </body>
 </html>

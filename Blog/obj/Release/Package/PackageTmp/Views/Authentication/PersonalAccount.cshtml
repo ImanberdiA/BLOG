@@ -1,0 +1,11 @@
+﻿@model Blog.Models.AppUser
+
+@{
+    ViewBag.Title = "PersonalAccount";
+}
+
+<h2>@Model.UserName</h2>
+
+<b>Email: </b> @Model.Email <br />
+<b>Номер телефона: </b> @Model.PhoneNumber <br />
+<b>Роли: </b> @ViewBag.RoleNames

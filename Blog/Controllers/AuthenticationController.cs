@@ -69,7 +69,14 @@ namespace Blog.Controllers
                     IsPersistent = true
                 }, ident);
 
-                return Redirect(ReturnUrl);
+                if (ReturnUrl != string.Empty)
+                {
+                    return Redirect(ReturnUrl);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home", null);
+                }
             }
 
             return View(model);
@@ -125,6 +132,10 @@ namespace Blog.Controllers
                     AddErrorsFromResultToModelState(result);
                 }
             }
+
+            IEnumerable<AppRole> Roles = RoleManager.Roles.Where(r => (r.Name != "Administrators") && (r.Name != "Moderators"));
+            SelectList roles = new SelectList(Roles, "Name", "Name");
+            ViewData["Roles"] = roles;
 
             return View(model);
         }
