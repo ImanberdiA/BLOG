@@ -224,10 +224,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/10/2013 19:29:20</publishTime>
     </File>
     <File Include="bin/Blog.dll">
-      <publishTime>12/04/2019 00:19:59</publishTime>
+      <publishTime>12/04/2019 02:12:30</publishTime>
     </File>
     <File Include="bin/Blog.pdb">
-      <publishTime>12/04/2019 00:19:59</publishTime>
+      <publishTime>12/04/2019 02:12:30</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>02/25/2014 01:34:42</publishTime>
@@ -470,19 +470,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/03/2019 14:45:58</publishTime>
     </File>
     <File Include="Views/Blog/Create.cshtml">
-      <publishTime>11/16/2019 00:36:16</publishTime>
+      <publishTime>12/04/2019 01:58:46</publishTime>
     </File>
     <File Include="Views/Blog/Edit.cshtml">
       <publishTime>11/16/2019 00:38:38</publishTime>
     </File>
     <File Include="Views/Blog/GetUserPosts.cshtml">
-      <publishTime>12/02/2019 23:11:27</publishTime>
+      <publishTime>12/04/2019 02:07:29</publishTime>
     </File>
     <File Include="Views/Home/GetArticle.cshtml">
       <publishTime>12/04/2019 00:17:20</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>12/04/2019 00:18:50</publishTime>
+      <publishTime>12/04/2019 02:04:09</publishTime>
     </File>
     <File Include="Views/RoleAdmin/Create.cshtml">
       <publishTime>11/16/2019 01:28:04</publishTime>
