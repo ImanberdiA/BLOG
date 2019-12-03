@@ -1,10 +1,6 @@
 ﻿@using Blog.Models
 @model IEnumerable<Post>
 
-@{
-    //Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
 <!-- Banner Area Start -->
 <section class="banner-area text-left">
     <div class="container">
@@ -68,20 +64,22 @@
                     <div class="blog-content">
                         <h3>@post.Title</h3>
                         <h6>Автор: @post.Author.UserName</h6>
-                        <p>@post.Text.Substring(0, 100)</p>
+                        @if (post.Text.Length > 120)
+                        {
+                            <p>@post.Text.Substring(0, 120)</p>
+                        }
+                        else
+                        {
+                            <p>@post.Text.Substring(0, post.Text.Length)</p>
+                        }
 
-                        @Html.ActionLink("Читать далее", "GetArticle", "Home", new { id = post.Id }, null)
-                        
+                        <p>@Html.ActionLink("Читать далее", "GetArticle", "Home", new { id = post.Id }, new { @class = "btn btn-warning" })</p>
+
                     </div>
                 </div>
             </div>
         </div>
-
-        //<tr><td><b>@post.Title</b></td></tr>
-        //<tr><td>@post.Text</td></tr>
-        //<tr><td>@post.Author.UserName</td></tr>
     }
-    </div>
 </section>
 <!-- Event Area End -->
 

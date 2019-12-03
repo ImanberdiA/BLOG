@@ -1,10 +1,6 @@
 ﻿@using Blog.Models
 @model IEnumerable<Post>
 
-@{
-    //Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
 <!-- Banner Area Start -->
 <section class="banner-area text-left">
     <div class="container">
@@ -66,21 +62,17 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-12">
                 <div class="single-blog pb-30">
                     <div class="blog-content">
-                        <h3><a href="#">@post.Title</a></h3>
-                        <h6>25 March 2017</h6>
-                        <p>@post.Text.Substring(0, 4)</p>
+                        <h3>@post.Title</h3>
+                        <h6>Автор: @post.Author.UserName</h6>
+                        <p>@post.Text.Substring(0, 100)</p>
 
-                        <a href="#">read more</a>
+                        @Html.ActionLink("Читать далее", "GetArticle", "Home", new { id = post.Id }, null)
+                        
                     </div>
                 </div>
             </div>
         </div>
-
-        //<tr><td><b>@post.Title</b></td></tr>
-        //<tr><td>@post.Text</td></tr>
-        //<tr><td>@post.Author.UserName</td></tr>
     }
-    </div>
 </section>
 <!-- Event Area End -->
 

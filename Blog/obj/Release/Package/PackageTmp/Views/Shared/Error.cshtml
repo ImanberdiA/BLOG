@@ -1,25 +1,65 @@
 ﻿@model IEnumerable<string>
+
+@{
+    Layout = null;
+}
+
 @{
     ViewBag.Title = "Ошибка";
 }
-<div class="alert alert-danger">
-    @switch (Model.Count())
-    {
-        case 0:
-            @: Что-то пошло не так. Пожалуйста, попробуйте еще раз!
-            break;
-        case 1:
-            @Model.First();
-            break;
-        default:
-            @: Следующие ошибки были обнаружены:
-            <ul>
-                @foreach (string error in Model)
-                {
-                    <li>@error</li>
-                }
-            </ul>
-            break;
-    }
-</div>
-@Html.ActionLink("OK", "Index", null, new { @class = "btn btn-default" })
+
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>IT Блог</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/Assets/img/favicon.ico">
+
+    <!-- All css here -->
+    <link rel="stylesheet" href="~/Assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Assets/css/shortcode/shortcodes.css">
+    <link rel="stylesheet" href="~/Assets/css/slick.css">
+    <link rel="stylesheet" href="~/Assets/css/style.css">
+    <link rel="stylesheet" href="~/Assets/css/responsive.css">
+    <script src="~/Assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-2 col-xs-12">
+            <div class="logo">
+                <a href="index.html"><img src="~/Assets/img/logo/logo.png" alt="COFFEE" /></a>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container">
+        <div class="alert alert-danger">
+            @switch (Model.Count())
+            {
+                case 0:
+                    @: Что-то пошло не так. Пожалуйста, попробуйте еще раз!
+                    break;
+                case 1:
+                    @Model.First();
+                    break;
+                default:
+                    @: Следующие ошибки были обнаружены:
+                    <ul>
+                        @foreach (string error in Model)
+                        {
+                            <li>@error</li>
+                        }
+                    </ul>
+                    break;
+            }
+        </div>
+        @Html.ActionLink("На главную", "Index", "Home", null, new { @class = "btn btn-default" })
+    </div>
+</body>
+</html>

@@ -24,6 +24,7 @@ namespace Blog.Controllers
 
         public ActionResult GetArticle(string id)
         {
+            ViewData["IsAuth"] = HttpContext.User.Identity.IsAuthenticated;
             Post post = db.Posts.FirstOrDefault(p => p.Id.ToString() == id);
             return View(post);
         }

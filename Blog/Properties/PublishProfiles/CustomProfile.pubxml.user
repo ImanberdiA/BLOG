@@ -224,10 +224,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/10/2013 19:29:20</publishTime>
     </File>
     <File Include="bin/Blog.dll">
-      <publishTime>12/03/2019 03:10:39</publishTime>
+      <publishTime>12/04/2019 00:19:59</publishTime>
     </File>
     <File Include="bin/Blog.pdb">
-      <publishTime>12/03/2019 03:10:39</publishTime>
+      <publishTime>12/04/2019 00:19:59</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>02/25/2014 01:34:42</publishTime>
@@ -458,7 +458,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/06/2019 23:43:29</publishTime>
     </File>
     <File Include="Views/Admin/Index.cshtml">
-      <publishTime>11/06/2019 22:37:06</publishTime>
+      <publishTime>12/03/2019 17:28:05</publishTime>
     </File>
     <File Include="Views/Authentication/Login.cshtml">
       <publishTime>11/07/2019 00:53:22</publishTime>
@@ -467,7 +467,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/23/2019 01:07:22</publishTime>
     </File>
     <File Include="Views/Authentication/Register.cshtml">
-      <publishTime>12/02/2019 23:16:05</publishTime>
+      <publishTime>12/03/2019 14:45:58</publishTime>
     </File>
     <File Include="Views/Blog/Create.cshtml">
       <publishTime>11/16/2019 00:36:16</publishTime>
@@ -478,8 +478,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Blog/GetUserPosts.cshtml">
       <publishTime>12/02/2019 23:11:27</publishTime>
     </File>
+    <File Include="Views/Home/GetArticle.cshtml">
+      <publishTime>12/04/2019 00:17:20</publishTime>
+    </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>12/02/2019 23:11:51</publishTime>
+      <publishTime>12/04/2019 00:18:50</publishTime>
     </File>
     <File Include="Views/RoleAdmin/Create.cshtml">
       <publishTime>11/16/2019 01:28:04</publishTime>
@@ -488,13 +491,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/17/2019 23:38:35</publishTime>
     </File>
     <File Include="Views/RoleAdmin/Index.cshtml">
-      <publishTime>11/16/2019 01:25:18</publishTime>
+      <publishTime>12/03/2019 17:35:36</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
-      <publishTime>11/16/2019 01:09:45</publishTime>
+      <publishTime>12/03/2019 21:39:09</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>12/02/2019 23:14:54</publishTime>
+      <publishTime>12/03/2019 21:10:55</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>11/06/2019 18:56:25</publishTime>
